@@ -9,3 +9,5 @@ Since delegate knows how to call a method we can use it to define callback metho
 3. Func
 4. Predicate
 
+[Delegate in use](http://armenhovsep.com/Blogs/delegate-in-use/)
+
