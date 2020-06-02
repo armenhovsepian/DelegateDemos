@@ -11,7 +11,7 @@ namespace DelegateDemo
             Print writeMessage = WriteMessage;
             writeMessage("Hello from Named Method");
 
-            //Anonymous method or Inline delegate
+            //Anonymous Method/Inline Delegate
             Print printMassage = delegate (string message) { 
                 Console.WriteLine(message); 
             };

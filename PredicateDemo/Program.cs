@@ -1,7 +1,7 @@
-﻿using PredicateDemo.Data;
-using PredicateDemo.Model;
+﻿using Persistence.Data;
+using Persistence.Model;
 using System;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace PredicateDemo
 {
@@ -11,11 +11,11 @@ namespace PredicateDemo
         {
             //Named Method
             var rndId = new Random().Next(10);
-            var user = new UserService().GetUserById(rndId);
-            Predicate<User> IsAdmin = IsAdminUser;
-            Console.WriteLine(IsAdmin(user));
+            var product = new ProductService().GetById(rndId);
+            Predicate<Product> isLessThan100 = IsLessThan100;
+            Console.WriteLine(isLessThan100(product));
 
-            //Anonymous method or Inline delegate
+            //Anonymous Method/Inline Delegate
             Predicate<int> IsPositive = delegate (int num)
             {
                 return num >= 0;
@@ -26,14 +26,18 @@ namespace PredicateDemo
             Predicate<int> IsEven = num => num % 2 == 0;
             Console.WriteLine(IsEven(rndValue));
 
-            var users = new List<User>();
-            var result = users.Find(IsAdmin);
+            //Perform criteria in Memory
+            Predicate<Product> FindById = product => 
+                product.ProductID == new Random().Next(10);
+            var res = new ProductService().Products.ToList().Find(FindById);
         }
 
 
-        static bool IsAdminUser(User user)
+        static bool IsLessThan100(Product product)
         {
-            return user.Type == UserType.Administrator;
+            return product.UnitPrise <= 100;
         }
+
+
     }
 }
