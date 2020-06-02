@@ -11,9 +11,11 @@ namespace FuncDemo
     {
         static void Main(string[] args)
         {
+            var repository = new ProductRepository();
+
             //Named Method
             Func<double, double> CalcTwice = new Func<double, double>(Twice);
-            //Short
+            //short way
             //Func<double, double> CalcTwice = Twice;
             Console.WriteLine(CalcTwice(4));
 
@@ -40,12 +42,12 @@ namespace FuncDemo
             //Perform criteria in Memory
             Func<Product, bool> IsLessThan100 = 
                 product => product.UnitPrise <= 100;
-            products = new ProductService().Products.Where(IsLessThan100).ToList();
+            products = repository.Products.Where(IsLessThan100).ToList();
 
             //Perform criteria in Database
-            Expression<Func<Product, bool>> IsLessThan100Exp = 
-                product => product.UnitPrise <= 100;
-            products = new ProductService().Products.Where(IsLessThan100Exp).ToList();
+            Expression<Func<Product, bool>> IsGreaterThan100 = 
+                product => product.UnitPrise > 100;
+            products = repository.Products.Where(IsGreaterThan100).ToList();
         }
 
         static double Twice(double value)

@@ -8,7 +8,7 @@ namespace ActionDemo
         {
             //Named Method
             Action<string> Print = new Action<string>(WriteMessage);
-            //Short way
+            //short way
             //Action<string> Print = WriteMessage;
             Print("Hello from Action");
 

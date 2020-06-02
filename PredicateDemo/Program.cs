@@ -1,7 +1,6 @@
 ﻿using Persistence.Data;
 using Persistence.Model;
 using System;
-using System.Linq;
 
 namespace PredicateDemo
 {
@@ -9,9 +8,11 @@ namespace PredicateDemo
     {
         static void Main(string[] args)
         {
+            var repository = new ProductRepository();
+
             //Named Method
             var rndId = new Random().Next(10);
-            var product = new ProductService().GetById(rndId);
+            var product = repository.GetById(rndId);
             Predicate<Product> isLessThan100 = IsLessThan100;
             Console.WriteLine(isLessThan100(product));
 
@@ -29,7 +30,7 @@ namespace PredicateDemo
             //Perform criteria in Memory
             Predicate<Product> FindById = product => 
                 product.ProductID == new Random().Next(10);
-            var res = new ProductService().Products.ToList().Find(FindById);
+            var products = repository.GetAll().Find(FindById);
         }
 
 
