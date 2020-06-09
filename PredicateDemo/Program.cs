@@ -17,20 +17,20 @@ namespace PredicateDemo
             Console.WriteLine(isLessThan100(product));
 
             //Anonymous Method/Inline Delegate
-            Predicate<int> IsPositive = delegate (int num)
+            Predicate<int> isPositive = delegate (int num)
             {
                 return num >= 0;
             };
 
             //Lambda Expression with parameter
             var rndValue = new Random().Next(10);
-            Predicate<int> IsEven = num => num % 2 == 0;
-            Console.WriteLine(IsEven(rndValue));
+            Predicate<int> isEven = num => num % 2 == 0;
+            Console.WriteLine(isEven(rndValue));
 
             //Perform criteria in Memory
-            Predicate<Product> FindById = product => 
+            Predicate<Product> findById = product => 
                 product.ProductID == new Random().Next(10);
-            var products = repository.GetAll().Find(FindById);
+            var products = repository.GetAll().Find(findById);
         }
 
 

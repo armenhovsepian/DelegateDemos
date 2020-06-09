@@ -14,44 +14,47 @@ namespace FuncDemo
             var repository = new ProductRepository();
 
             //Named Method
-            Func<double, double> CalcTwice = new Func<double, double>(Twice);
+            Func<double, double> calculatePowTwo = new Func<double, double>(PowTwo);
             //simpler way
-            //Func<double, double> CalcTwice = Twice;
-            Console.WriteLine(CalcTwice(4));
+            //Func<double, double> calculatePowTwo = PowTwo;
+
+            //Multicast Delegates
+            calculatePowTwo += PowTwo;
+            Console.WriteLine(calculatePowTwo(4));
 
             //Anonymous Method/Inline Delegate
-            Func<double, double> CalculateCircleArea = delegate (double radius)
+            Func<double, double> calculateCircleArea = delegate (double radius)
             {
                 return Math.PI * Math.Pow(radius, 2);
             };
-            Console.WriteLine(CalculateCircleArea(10));
+            Console.WriteLine(calculateCircleArea(10));
 
             //Lambda Expression without parameter
-            Func<long> GetUnix = () => DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-            Console.WriteLine(GetUnix());
+            Func<long> unix = () => DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+            Console.WriteLine(unix());
 
             //Lambda Expression with parameters
-            Func<double, double, int, double> CalculateCompoundInterest = 
+            Func<double, double, int, double> calculateCompoundInterest = 
                 (principle, interestRate, noOfYears) => 
                     (principle) * Math.Pow((1 + (interestRate) / 100), noOfYears);
-            Console.WriteLine(CalculateCompoundInterest(10000, 0.5, 2));
+            Console.WriteLine(calculateCompoundInterest(10000, 0.5, 2));
 
 
             IEnumerable<Product> products = Enumerable.Empty<Product>();
             //Perform criteria in Memory
-            Func<Product, bool> IsLessThan100 = 
+            Func<Product, bool> isLessThan100 = 
                 product => product.UnitPrise <= 100;
-            products = repository.Products.Where(IsLessThan100).ToList();
+            products = repository.Products.Where(isLessThan100).ToList();
 
             //Perform criteria in Database
-            Expression<Func<Product, bool>> IsGreaterThan100 = 
+            Expression<Func<Product, bool>> isGreaterThan100 = 
                 product => product.UnitPrise > 100;
-            products = repository.Products.Where(IsGreaterThan100).ToList();
+            products = repository.Products.Where(isGreaterThan100).ToList();
         }
 
-        static double Twice(double value)
+        static double PowTwo(double value)
         {
-            return value * 2;
+            return Math.Pow(value, 2);
         }
     }
 }
