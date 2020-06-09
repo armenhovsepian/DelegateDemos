@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PredicateDemo", "PredicateD
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{98DA9D7F-C1B2-4C43-8155-A39FDB447FE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Persistence\Persistence.csproj", "{4ACF8D67-0304-4470-A592-B4288D73AFF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Persistence\Persistence.csproj", "{4ACF8D67-0304-4470-A592-B4288D73AFF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventDelegateDemo", "EventDelegateDemo\EventDelegateDemo.csproj", "{485DE6BD-2C1B-481B-97B6-8FBB4C3C9F6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{4ACF8D67-0304-4470-A592-B4288D73AFF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4ACF8D67-0304-4470-A592-B4288D73AFF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4ACF8D67-0304-4470-A592-B4288D73AFF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{485DE6BD-2C1B-481B-97B6-8FBB4C3C9F6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{485DE6BD-2C1B-481B-97B6-8FBB4C3C9F6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{485DE6BD-2C1B-481B-97B6-8FBB4C3C9F6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{485DE6BD-2C1B-481B-97B6-8FBB4C3C9F6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

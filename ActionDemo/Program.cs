@@ -8,12 +8,14 @@ namespace ActionDemo
         {
             //Named Method
             Action<string> Print = new Action<string>(WriteMessage);
-            //short way
+            //simpler way
             //Action<string> Print = WriteMessage;
             Print("Hello from Action");
 
             //Anonymous Method/Inline Delegate
-            Action<string> PrintMessage = delegate (string message) { Console.WriteLine(message); };
+            Action<string> PrintMessage = delegate (string message) { 
+                Console.WriteLine(message); 
+            };
             PrintMessage("Hello from Anonymous method or inline delegate");
 
             //Lambda Expression without parameter

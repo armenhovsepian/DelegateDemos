@@ -15,17 +15,16 @@ namespace FuncDemo
 
             //Named Method
             Func<double, double> CalcTwice = new Func<double, double>(Twice);
-            //short way
+            //simpler way
             //Func<double, double> CalcTwice = Twice;
             Console.WriteLine(CalcTwice(4));
 
             //Anonymous Method/Inline Delegate
-            var pi = 3.14;
-            Func<double, double> CalcCircleArea = delegate (double radius)
+            Func<double, double> CalculateCircleArea = delegate (double radius)
             {
-                return radius * radius * pi;
+                return Math.PI * Math.Pow(radius, 2);
             };
-            Console.WriteLine(CalcCircleArea(10));
+            Console.WriteLine(CalculateCircleArea(10));
 
             //Lambda Expression without parameter
             Func<long> GetUnix = () => DateTimeOffset.UtcNow.ToUnixTimeSeconds();
@@ -52,7 +51,7 @@ namespace FuncDemo
 
         static double Twice(double value)
         {
-            return (value * 2);
+            return value * 2;
         }
     }
 }

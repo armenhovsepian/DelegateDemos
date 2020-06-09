@@ -14,5 +14,10 @@ namespace Persistence.Data
 
         public List<Product> GetAll() => _dbContext.Products.ToList();
 
+        public void Update(Product product)
+        {
+            _dbContext.Products.Update(product);
+            //_dbContext.SaveChanges();
+        }
     }
 }
