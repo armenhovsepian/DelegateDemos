@@ -2,7 +2,7 @@
 A delegate is an object that holds the method(s) reference or is a method(s) pointer.
 Delegates are type-safe, secure, and object-oriented.
 Delegates are reference type.
-Delegate follows the observer pattern. 
+***Delegate follows the observer pattern.***
 
 ## There are 3 types of delegates in .NET
 1. Action
@@ -44,6 +44,13 @@ Since delegate knows how to call a method we can use it to define callback metho
 public delegate void Delegate_Name();
 public event Delegate_Name Event_Name;
 ```
+
+## Multicast Delegates
+A multicast delegate represents a delegate that can invoke more than one method at once. All delegate types have multicast capability. Remember:
+* The methods are called in the order they are added.
+* If either of the methods throws an exception, the delegate call immediately stops, and no other methods in the list are called. 
+* If the delegate returns a value, only the value of the last invoked method will be returned.
+
 
 [Delegate in use](http://armenhovsep.com/Blogs/delegate-in-use/)
 
