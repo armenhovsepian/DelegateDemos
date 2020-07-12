@@ -4,6 +4,12 @@ Delegates are type-safe, secure, and object-oriented.
 Delegates are reference type.
 ***Delegate follows the observer pattern.***
 
+## Different ways to initiate delegates 
+1. Named methods
+2. Lambda expressions
+3. Anonymous methods
+
+
 ## There are 3 types of delegates in .NET
 1. Action
 2. Func
