@@ -32,7 +32,7 @@ Func<TParams, bool>
 5. Event Delegate
 
 ## Delegate
-We can define our custom delegate by using the delegate keyword.
+We can define our custom delegate by using the *delegate* keyword.
 Delegate definition convention is like abstract method definition convention, but instead of abstract use delegate.
 ```csharp
 public delegate return_Type Delegate_Name([parameters]);
