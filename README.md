@@ -57,6 +57,8 @@ A multicast delegate represents a delegate that can invoke more than one method 
 * If either of the methods throws an exception, the delegate call immediately stops, and no other methods in the list are called. 
 * If the delegate returns a value, only the value of the last invoked method will be returned.
 
+## Expression
+LINQ To SQL uses lambda expressions to create expresion tree in order to convert C# codes to SQL query
 
 [Delegate in use](http://armenhovsep.com/Blogs/delegate-in-use/)
 
