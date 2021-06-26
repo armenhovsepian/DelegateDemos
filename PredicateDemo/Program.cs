@@ -1,9 +1,14 @@
 ﻿using Persistence.Data;
 using Persistence.Model;
 using System;
+using System.Linq;
 
 namespace PredicateDemo
 {
+    /// <summary>
+    /// Predicate points to a method(s) that return a Boolean value. (a type/ extension of Func) 
+    /// Can use for checking purposes
+    /// </summary>
     class Program
     {
         static void Main(string[] args)
@@ -28,9 +33,11 @@ namespace PredicateDemo
             Console.WriteLine(isEven(rndValue));
 
             //Perform criteria in Memory
-            Predicate<Product> findById = product => 
+            Predicate<Product> findById = product =>
                 product.ProductID == new Random().Next(10);
             var products = repository.GetAll().Find(findById);
+
+            var isExist = repository.GetAll().Any(IsLessThan100);
         }
 
 

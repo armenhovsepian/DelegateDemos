@@ -7,6 +7,9 @@ using System.Linq.Expressions;
 
 namespace FuncDemo
 {
+    /// <summary>
+    /// Func points to a method(s) that return a value.
+    /// </summary>
     class Program
     {
         static void Main(string[] args)
@@ -34,20 +37,21 @@ namespace FuncDemo
             Console.WriteLine(unix());
 
             //Lambda Expression with parameters
-            Func<double, double, int, double> calculateCompoundInterest = 
-                (principle, interestRate, noOfYears) => 
+            Func<double, double, int, double> calculateCompoundInterest =
+                (principle, interestRate, noOfYears) =>
                     (principle) * Math.Pow((1 + (interestRate) / 100), noOfYears);
             Console.WriteLine(calculateCompoundInterest(10000, 0.5, 2));
 
 
             IEnumerable<Product> products = Enumerable.Empty<Product>();
             //Perform criteria in Memory
-            Func<Product, bool> isLessThan100 = 
-                product => product.UnitPrise <= 100;
+            Func<Product, bool> isLessThan100 = product => product.UnitPrise <= 100;
             products = repository.Products.Where(isLessThan100).ToList();
 
+            var exists = repository.Products.Any(isLessThan100);
+
             //Perform criteria in Database
-            Expression<Func<Product, bool>> isGreaterThan100 = 
+            Expression<Func<Product, bool>> isGreaterThan100 =
                 product => product.UnitPrise > 100;
             products = repository.Products.Where(isGreaterThan100).ToList();
         }
