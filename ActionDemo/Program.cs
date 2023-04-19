@@ -4,7 +4,7 @@ using System.Linq;
 namespace ActionDemo
 {
     /// <summary>
-    /// Action oints to a method(s) that has a parameter(s) and does not return a value
+    /// Action points to a method(s) that has a parameter(s) and does not return a value
     /// </summary>
     class Program
     {
