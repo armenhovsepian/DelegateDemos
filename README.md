@@ -4,6 +4,9 @@ Delegates are type-safe, secure, and object-oriented.
 Delegates are reference type.
 ***Delegate follows the observer pattern.***
 
+Consider the delegate as a callback. A callback is a function that is passed as an argument to another function. Usually, the callback is then invoked at some point within the outer function.
+
+
 ## Different ways to initiate delegates 
 1. Named methods
 2. Lambda expressions
